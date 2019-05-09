@@ -31,6 +31,27 @@ public class Utilisateur {
 	
 	private boolean enable;
 	
+	public Utilisateur(String username, String nom, String prenom, String password, boolean enable) {
+		super();
+		this.username = username;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password;
+		this.enable = enable;
+	}
+
+	public Utilisateur(String username, String nom, String prenom, String password, boolean enable, List<Role> roles,
+			Collection<UserStruct> userCollection) {
+		super();
+		this.username = username;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password;
+		this.enable = enable;
+		this.roles = roles;
+		this.userCollection = userCollection;
+	}
+
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="USERS_ROLES",
 	joinColumns={@JoinColumn(name="USER_ID")},

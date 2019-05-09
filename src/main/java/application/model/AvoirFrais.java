@@ -32,6 +32,12 @@ public class AvoirFrais implements Serializable {
    // @EmbeddedId
    // protected AvoirFraisPK avoirFraisPK;
 	
+	
+
+	@Id
+	@Column(name="code")
+	private String code ; 
+	
 	@Id    
 	@Column(name = "NUM_MISSION")
 	    private String numMission;
@@ -50,33 +56,29 @@ public class AvoirFrais implements Serializable {
 	    private String cin;
 	   
 
-    @Basic(optional = false)
-    @NotNull
+
+
     @Column(name = "VALEUR_P")
     private BigDecimal valeurP;
     
     @Column(name = "VALEUR_R")
     
     private BigDecimal valeurR;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1)
+   
     @Column(name = "SUPPORTE")
     
     private String supporte;
-    @Size(max = 6)
+   
     @Column(name = "SUP_CODE")
     private String supCode;
     
-    @Size(max = 2)
+  
     @Column(name = "COD_PRJ")
     private String codPrj;
     
-    @Size(max = 120)
     @Column(name = "OBSERV")
     private String observ;
     
-    @Size(max = 120)
     @Column(name = "AOBSERV")
     private String aobserv;
     
@@ -109,6 +111,14 @@ public class AvoirFrais implements Serializable {
 
     
     
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String getNVille() {
 		return NVille;
 	}
@@ -246,12 +256,13 @@ public class AvoirFrais implements Serializable {
 		this.cin = cin;
 	}
 
-	public AvoirFrais(String numMission, short numord, String typFrais, String codPays, String cin,
-			@NotNull BigDecimal valeurP, BigDecimal valeurR, @NotNull @Size(min = 1, max = 1) String supporte,
-			@Size(max = 6) String supCode, @Size(max = 2) String codPrj, @Size(max = 120) String observ,
-			@Size(max = 120) String aobserv, String nVille, String typetransport, OrdMis ordMis, Pays pays,
-			TypFrais typFrais1) {
+	
+	public AvoirFrais(String code, String numMission, short numord, String typFrais, String codPays, String cin,
+			BigDecimal valeurP, BigDecimal valeurR, String supporte, String supCode, String codPrj,
+			@Size(max = 120) String observ, @Size(max = 120) String aobserv, String nVille, String typetransport,
+			OrdMis ordMis, Pays pays, TypFrais typFrais1) {
 		super();
+		this.code = code;
 		this.numMission = numMission;
 		this.numord = numord;
 		this.typFrais = typFrais;

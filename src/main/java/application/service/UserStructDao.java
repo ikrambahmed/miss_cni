@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import application.model.DeptGen;
+import application.model.UserStruct;
 import application.repository.UserStructRepository;
 
 @Service
@@ -15,7 +16,7 @@ public class UserStructDao {
 	@Autowired
    UserStructRepository userStructRep ;
 
-	public DeptGen findDept(String username) {
+	public UserStruct findDept(String username) {
 		// TODO Auto-generated method stub
 		return userStructRep.findDeptGen(username); 
 	} 

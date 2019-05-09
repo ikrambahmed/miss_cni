@@ -61,13 +61,8 @@ public class Mission implements Serializable{
 	    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mission")
 	    @JsonIgnore
 	    private Collection<OrdMis> ordMisCollection;
+	   
 	    
-
-		
-
-	
-
-
 		public Mission(String numMission, String code, String objeta, String objetl, Date datdepP, Date datarrP,
 				DeptGen deptGen, application.model.Motcle motcle, Collection<OrdMis> ordMisCollection) {
 			super();
@@ -84,7 +79,6 @@ public class Mission implements Serializable{
 
 		public Mission() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
 
 //		public MissionPK getMissionPK() {
@@ -103,15 +97,9 @@ public class Mission implements Serializable{
 			return numMission;
 		}
 
-
-
-
 		public void setNumMission(String numMission) {
 			this.numMission = numMission;
 		}
-
-
-
 
 		public String getCode() {
 			return code;

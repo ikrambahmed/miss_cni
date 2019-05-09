@@ -56,8 +56,7 @@ public class AvoirBudgetProjetPK implements Serializable {
 		this.code = code;
 		this.dateBproj = dateBproj;
 	}
-    
-    
-    
+
+	
     
     }

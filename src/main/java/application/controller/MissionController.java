@@ -39,6 +39,13 @@ public class MissionController {
 		return missiondao.getMissions() ; 
 		
 	}
+	
+	@GetMapping(value="/getOneMission")
+	  public Optional<Mission> getMiss(@RequestParam(name="numMission",defaultValue="")String numMission,@RequestParam(name="codeDept",defaultValue="")String codeDept)
+	    {
+		  return missiondao.getMissionById(numMission,codeDept) ; 
+	    }
+	
 	@PostMapping("/add")
 	public Mission addMission(@RequestBody Mission Mission)
 	{
@@ -46,34 +53,41 @@ public class MissionController {
 	}
 	
 	@PutMapping("/update")
-	public void updateMission(@RequestBody Mission missiona)
+	public Mission updateMission(@RequestBody Mission missiona)
 	{
-		missiondao.updateMission(missiona);
+		 return missiondao.updateMission(missiona);
 		
 	}
 	@DeleteMapping("/{code}")
 	public void deleteMission(@PathVariable Long code)
 	{
-		missiondao.deleteMission(code);
+		 missiondao.deleteMission(code);
 	}
     @RequestMapping(value = "/listeMissionByDept", method = RequestMethod.GET)
 	  public List<Mission> findMission(@RequestParam(name="codeDept",defaultValue="")String codeDept)
 	    {
 		  return missiondao.findMission(codeDept) ; 
 	   }
-	
-	
-//	@PostMapping(value="/findById")
-//	  public Optional<Mission> getMissionById(@RequestBody Mission mission)
-//	    {
-//		  return missiondao.getMissionById(mission.getMissionPK().getCode() , mission.getMissionPK().getNumMission()) ; 
-//	    }
-	
-	@GetMapping(value="/latestMissionCode")
-	  public String findCodeMission(@RequestParam(name="codeDept",defaultValue="")String codeDept)
+    
+    
+    @RequestMapping(value = "/missionValidation", method = RequestMethod.POST)
+	  public Mission findMission(@RequestBody Mission mission)
 	    {
-		  return missiondao.getLatestMissionCode(codeDept); 
+		  return missiondao.getMissionValidation(mission.getCode(),mission.getNumMission()) ; 
 	   }
+	
+	
+	@PostMapping(value="/findById")
+	  public Optional<Mission> getMissionById(@RequestBody Mission mission)
+	    {
+		  return missiondao.getMissionById(mission.getCode() , mission.getNumMission()) ; 
+	    }
+
+	
+	@GetMapping("/latestCode")
+	public String findCode(@RequestParam(name="codeDept" , defaultValue="") String codeDept) {
+		return missiondao.findCode(codeDept);
+	}
 	
 	
 }

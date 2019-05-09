@@ -44,15 +44,17 @@ public class UserStruct implements Serializable {
 		}
 
 
-		public void setDepartement(DeptGen departement) {
-			this.departement = departement;
-		}
+	
 
+	
 
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
 
+		public void setDepartement(DeptGen departement) {
+			this.departement = departement;
+		}
 
 		public long getIdUserStruct() {
 			return this.idUserStruct;

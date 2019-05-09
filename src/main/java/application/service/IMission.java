@@ -12,10 +12,10 @@ public interface IMission {
 	
 	Mission addMission(Mission Mission) ; 
 	
-	void updateMission(Mission Mission) ; 
+	Mission updateMission(Mission Mission) ; 
 	
 	void deleteMission(Long code) ; 
 	public List<Mission> findMission(String codeDept);
 	public Optional<Mission> getMissionById( String code , String numMission) ; 
-	public String getLatestMissionCode(String code) ; 
-}
+	public String findCode(String codeDept);
+	}

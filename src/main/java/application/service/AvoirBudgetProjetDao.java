@@ -26,6 +26,10 @@ public List<AvoirBudgetProjet> getbugetPBydept(String code) {
 public AvoirBudgetProjet addBudgetProjet(AvoirBudgetProjet a) {
 	return 	avoirBudgetRep.save(a) ; 
 }
+public AvoirBudgetProjet updateBudgetProjet(AvoirBudgetProjet a) {
+	// TODO Auto-generated method stub
+	return avoirBudgetRep.save(a);
+}
 
 
 }

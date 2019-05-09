@@ -32,7 +32,7 @@ public class AvoirBudgetPK implements Serializable {
 	public AvoirBudgetPK() {
 		super();
 		// TODO Auto-generated constructor stub
-	} 
+	}
 
 	 
 	 

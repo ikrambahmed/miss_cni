@@ -1,5 +1,6 @@
 package application;
 
+import java.io.InputStream;
 import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
@@ -12,15 +13,38 @@ import application.model.Utilisateur;
 import application.repository.RoleRepository;
 import application.repository.UserRepository;
 import application.util.RoleEnum;
-
+/*import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+*/
 @SpringBootApplication
 @EntityScan("application.*")
 public class MissCniApplication {
 
-	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx=SpringApplication.run(MissCniApplication.class, args);
-	RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
+	public static void main(String[] args) /* throws JRException */{
 		
+		
+		ConfigurableApplicationContext ctx=SpringApplication.run(MissCniApplication.class, args);
+     	RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
+		
+     /*
+			JasperReport jasperReport = JasperCompileManager.compileReport("C:\\Users\\ikram ben ahmed\\Documents\\workspace-spring-tool-suite-4-4.1.1.RELEASE\\miss_cni\\src\\Blank_A4.jrxml");
+		
+     	JRDataSource jrDataSource = new JREmptyDataSource() ; 
+     	JasperPrint jasperPrint =JasperFillManager.fillReport(jasperReport, null , jrDataSource) ; 
+     	
+     	JasperExportManager.exportReportToPdfFile(jasperPrint,"C:\\Users\\ikram ben ahmed\\Documents\\workspace-spring-tool-suite-4-4.1.1.RELEASE\\miss_cni\\src\\Blank_A4.pdf") ; 
+     	
+     	
+     	
+     	
+     	
+     	*/
         Role roleOrd = new Role(RoleEnum.ROLE_ORD)  ; 
 		Role roleUser = new Role(RoleEnum.ROLE_USER);
 		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
@@ -38,20 +62,20 @@ public class MissCniApplication {
 		
 		UserRepository userRepository = ctx.getBean(UserRepository.class);
 		
-		Utilisateur user = new Utilisateur("user", "password1", true);
+		Utilisateur user = new Utilisateur("user","password1", true);
 		user.setRoles(Arrays.asList(roleUser));
 		userRepository.save(user);
 
-		Utilisateur use = new Utilisateur("11406266", "pass", true);
-		use.setRoles(Arrays.asList(roleUser, roleMinstr));
+		Utilisateur use = new Utilisateur("98765432","Kerro","Dorra","pass3", true);
+		use.setRoles(Arrays.asList(roleUser, roleControl));
 		userRepository.save(use);
 
 		
-		Utilisateur admin = new Utilisateur("12345678", "password2", true);
-		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
+		Utilisateur admin = new Utilisateur("12345678","Sghaier","Jamila", "password2", true);
+		admin.setRoles(Arrays.asList(roleUser));
 		userRepository.save(admin);
 
-		Utilisateur user1 = new Utilisateur("11406260", "ikram", true);
+		Utilisateur user1 = new Utilisateur("11406260","Ben ahmed","Ikram","ikram", true);
 		user1.setRoles(Arrays.asList(roleOrd,roleUser));
 		userRepository.save(user1);
 		

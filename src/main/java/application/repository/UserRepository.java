@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<Utilisateur, String>{
 	Utilisateur findByUsername(String str);
 	@Query("select o from Utilisateur o ")
 	public List<Utilisateur> findUserByDept(@Param("codeDept")String codeDept);
+	@Query("select o from Utilisateur o where o.username=:cin")
+	Utilisateur getNomPrenom(@Param("cin")String cin);
 }

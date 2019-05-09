@@ -49,7 +49,14 @@ public class OrdMisPK implements Serializable {
 		this.numMission = numMission;
 	}
 
+	public OrdMisPK(String code, short numord, String numMission) {
+		super();
+		this.code = code;
+		this.numord = numord;
+		this.numMission = numMission;
+	}
 
+	
 
 
 }

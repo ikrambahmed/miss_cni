@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import application.model.AvoirFrais;
+import application.model.Mission;
 import application.repository.AvoirFraisRepository;
 
 @Service
@@ -40,6 +41,11 @@ public class AvoirFraisDao implements IAvoirFrais {
 	@Override
 	public List<AvoirFrais> AvoirFraisByMission(String num) {
 		return avoirFraisRespository.getFraisByMission(num);
+	}
+
+	public List<AvoirFrais> getFraisMission(String codeDept, String numMission, String cin, Short numOrd) {
+		// TODO Auto-generated method stub
+		return avoirFraisRespository.getFraisMission(codeDept,numMission,cin,numOrd);
 	}
 	
 	

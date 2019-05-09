@@ -47,7 +47,24 @@ public class DeptGen implements Serializable {
     @Column(name = "CPT_NBP")
     private Integer cptNbp;
     
-    @Column(name = "CPT_NOP")
+    @JsonIgnore
+    public Collection<Projet> getProjetCollection() {
+		return ProjetCollection;
+	}
+
+	public void setProjetCollection(Collection<Projet> projetCollection) {
+		ProjetCollection = projetCollection;
+	}
+@JsonIgnore
+	public Collection<AvoirBudget> getAvoirBudgetCollection() {
+		return AvoirBudgetCollection;
+	}
+
+	public void setAvoirBudgetCollection(Collection<AvoirBudget> avoirBudgetCollection) {
+		AvoirBudgetCollection = avoirBudgetCollection;
+	}
+
+	@Column(name = "CPT_NOP")
     private Integer cptNop;
     
     

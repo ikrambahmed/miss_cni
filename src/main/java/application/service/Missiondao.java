@@ -30,10 +30,10 @@ public class Missiondao implements IMission {
 		}
 
 		@Override
-		public void updateMission(Mission Mission) {
+		public Mission updateMission(Mission Mission) {
 			
 			
-			missionRepository.save(Mission) ; 
+			 return missionRepository.save(Mission) ; 
 			
 		}
 
@@ -42,7 +42,8 @@ public class Missiondao implements IMission {
 			
 			Mission Mission = new Mission() ; 
 			//Mission.setCode_mission(code);
-			missionRepository.delete(Mission);
+			
+			 missionRepository.delete(Mission);
 		}
 	/*	@Override
 		public List<Mission> findMission(String codeDept) {
@@ -62,16 +63,27 @@ public class Missiondao implements IMission {
 			return missionRepository.findMissionByDept(codeDept) ; 
 		}
 
-		@Override
-		public Optional<Mission> getMissionById(String code, String numMission) {
+		public String findCode(String codeDept){
+			return missionRepository.LatestMissionCode(codeDept);
+		}
+
+
+		
+
+		public Optional<Mission> getOneMission(String numMission) {
 			// TODO Auto-generated method stub
-			return missionRepository.recherche(code , numMission);
+			return missionRepository.getOnMission(numMission);
 		}
 
+		
 		@Override
-		public String getLatestMissionCode(String code) {
-			
-			return missionRepository.LatestMissionCode(code) ; 
+		public Optional<Mission> getMissionById(String code ,String num ) {
+			return missionRepository.recherche(code , num);
 		}
 
+		
+		public Mission getMissionValidation(String codeDept, String numMission) {
+			// TODO Auto-generated method stub
+			return missionRepository.getMissValidation(codeDept,numMission);
+		}
 	}

@@ -23,17 +23,28 @@ import application.repository.Ord_MissRepository;
 		}
 		
 		
-		public void ajouter(OrdMis o) {
-			ordmissRepository.save(o);
+		public OrdMis ajouter(OrdMis o) {
+			 return ordmissRepository.save(o);
 		}
 		
-		public void updateOrd(OrdMis o) {
-			ordmissRepository.save(o);
+		public OrdMis updateOrd(OrdMis o) {
+			return ordmissRepository.save(o);
 		}
 
 
 		public List<OrdMis> getMissionnaireByMission(String numMission) {
 			// TODO Auto-generated method stub
 			return ordmissRepository.getMissionnaireByNumMission(numMission);
+		}
+
+		public String getLatestOrdreNum(String codeDept,String numMission) {
+			// TODO Auto-generated method stub
+			return ordmissRepository.getLastestNum(codeDept,numMission);
+		}
+
+
+		public List<OrdMis> getOrdre(String codeDept) {
+			// TODO Auto-generated method stub
+			return ordmissRepository.getOrdres(codeDept);
 		}
 }

@@ -38,14 +38,14 @@ public class Ord_MissController  {
 	}
 	
 	@PostMapping("/addordMiss")
-	public void addOrdMiss(@RequestBody OrdMis ordMiss)
+	public OrdMis addOrdMiss(@RequestBody OrdMis ordMiss)
 	{
-		 ordMissDao.ajouter(ordMiss);
+		return  ordMissDao.ajouter(ordMiss);
 	}
 	
 	@PutMapping("/updateordMiss")
-	public void Modiford(@RequestBody OrdMis o) {
-		ordMissDao.updateOrd(o);
+	public OrdMis Modiford(@RequestBody OrdMis o) {
+		 return ordMissDao.updateOrd(o);
 		
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -56,7 +56,7 @@ public class Ord_MissController  {
 				
 			}
 		
-		 
+		
 			else
 
 		
@@ -68,5 +68,21 @@ public class Ord_MissController  {
 	    {
 		  return ordMissDao.getMissionnaireByMission(numMission) ; 
 	    }
+	
+	 @RequestMapping(value ="/latestOrdreCode", method = RequestMethod.GET)
+	  
+	    public String findNumOrdre(@RequestParam(name="codeDept",defaultValue="")String codeDept,@RequestParam(name="numMission",defaultValue="")String numMission)
+	    {
+		  return ordMissDao.getLatestOrdreNum(codeDept,numMission); 
+	   }
+	 
+	 @RequestMapping(value ="/getOrdreMission", method = RequestMethod.GET)
+	  
+	    public List<OrdMis> getOrdreMission(@RequestParam(name="codeDept",defaultValue="")String codeDept)
+	    {
+		  return ordMissDao.getOrdre(codeDept); 
+	   }
+	 
+	 
 }
 	

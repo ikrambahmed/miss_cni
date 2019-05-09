@@ -47,6 +47,11 @@ public class AvoirBudgetDao implements IAvoirBudget{
 	public AvoirBudget addBudget(AvoirBudget a) {
 		return 	avoirBudgetRepository.save(a) ; 
 	}
+
+	public AvoirBudget updateBudget(AvoirBudget a) {
+		// TODO Auto-generated method stub
+		return avoirBudgetRepository.save(a);
+	}
 	
 	
 	

@@ -53,5 +53,10 @@ public class UserService implements ICrudService<Utilisateur, String>{
 		return userRepository.findUserByDept(codeDept);
 	}
 
+	public Utilisateur getNomPrenom(String cin) {
+		// TODO Auto-generated method stub
+		return userRepository.getNomPrenom(cin);
+	}
+
 	
 }

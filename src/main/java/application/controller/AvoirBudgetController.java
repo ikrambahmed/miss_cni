@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import application.model.AvoirBudget;
 import application.model.AvoirFrais;
+import application.model.Missionnaire;
 import application.model.Projet;
 import application.service.AvoirBudgetDao;
 
@@ -42,6 +44,12 @@ public class AvoirBudgetController {
 		public AvoirBudget addbudget(@RequestBody AvoirBudget p)
 		{
 			 return avoirBudgetDao.addBudget(p);
+		}
+	  @PutMapping("updateBudget")
+		public AvoirBudget updateBudget(@RequestBody AvoirBudget a)
+		{
+			return avoirBudgetDao.updateBudget(a);
+			
 		}
 	
 	@GetMapping("/budgetbytype")

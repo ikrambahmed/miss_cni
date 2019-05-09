@@ -93,24 +93,51 @@ public class Zone implements Serializable {
     }*/
 
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codZone != null ? codZone.hashCode() : 0);
-        return hash;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codZone == null) ? 0 : codZone.hashCode());
+		result = prime * result + ((libZonea == null) ? 0 : libZonea.hashCode());
+		result = prime * result + ((libZonel == null) ? 0 : libZonel.hashCode());
+		result = prime * result + ((paysCollection == null) ? 0 : paysCollection.hashCode());
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Zone)) {
-            return false;
-        }
-        Zone other = (Zone) object;
-        if ((this.codZone == null && other.codZone != null) || (this.codZone != null && !this.codZone.equals(other.codZone))) {
-            return false;
-        }
-        return true;
-    }
+    public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Zone other = (Zone) obj;
+		if (codZone == null) {
+			if (other.codZone != null)
+				return false;
+		} else if (!codZone.equals(other.codZone))
+			return false;
+		if (libZonea == null) {
+			if (other.libZonea != null)
+				return false;
+		} else if (!libZonea.equals(other.libZonea))
+			return false;
+		if (libZonel == null) {
+			if (other.libZonel != null)
+				return false;
+		} else if (!libZonel.equals(other.libZonel))
+			return false;
+		if (paysCollection == null) {
+			if (other.paysCollection != null)
+				return false;
+		} else if (!paysCollection.equals(other.paysCollection))
+			return false;
+		return true;
+	}
 
     @Override
     public String toString() {
@@ -124,5 +151,15 @@ public class Zone implements Serializable {
 	public void setPaysCollection(Collection<Pays> paysCollection) {
 		this.paysCollection = paysCollection;
 	}
+
+	public Zone(@NotNull @Size(min = 1, max = 2) String codZone, @NotNull @Size(min = 1, max = 60) String libZonea,
+			@Size(max = 60) String libZonel, Collection<Pays> paysCollection) {
+		super();
+		this.codZone = codZone;
+		this.libZonea = libZonea;
+		this.libZonel = libZonel;
+		this.paysCollection = paysCollection;
+	}
     
+	
 }

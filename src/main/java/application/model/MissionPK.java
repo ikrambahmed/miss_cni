@@ -39,6 +39,8 @@ public class MissionPK implements Serializable {
 		this.numMission = numMission;
 		this.code = code;
 	}
+
     
+	
 }
 

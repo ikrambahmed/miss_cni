@@ -30,32 +30,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @IdClass(OrdMisPK.class)
 public class OrdMis implements Serializable{
 
-  
-
 		//@EmbeddedId
-    //protected OrdMisPK ordMisPK;
+       //protected OrdMisPK ordMisPK;
 	    @Id
 	    @Column(name = "CODE")
 	    private String code;
         @Id
 	    @Column(name="CIN")
 	    private String cin;
-	 @Id
+	    @Id
         @Column(name = "NUMORD")
         private short numord;
         @Id
         @Column(name = "NUM_MISSION")
         private String numMission; 
         
-    @Column(name = "DATDEP_P")
-    private Date datdepP;
+        @Column(name = "DATDEP_P")
+        private Date datdepP;
     
 
-    @Column(name = "DATARR_P")
-    private Date datarrP;
+        @Column(name = "DATARR_P")
+        private Date datarrP;
     
-    @Column(name = "DATDEP_R")
-    private Date datdepR;
+        @Column(name = "DATDEP_R")
+        private Date datdepR;
     
     @Column(name = "DATARR_R")
     private Date datarrR;
@@ -314,12 +312,45 @@ public class OrdMis implements Serializable{
 			this.numMission = numMission;
 		}
 	
+		
 	@JsonIgnore
 	public Collection<AvoirFrais> getAvoirFraisCollection() {
 		return avoirFraisCollection;
 	}
 
 	public void setAvoirFraisCollection(Collection<AvoirFrais> avoirFraisCollection) {
+		this.avoirFraisCollection = avoirFraisCollection;
+	}
+
+	public OrdMis(String code, String cin, short numord, String numMission, Date datdepP, Date datarrP, Date datdepR,
+			Date datarrR, BigDecimal timbr, BigDecimal avance, String etat, String numPb, Date datePay,
+			BigDecimal avanceAcc, Date datRap, String numOp, BigDecimal tauxSpec, BigDecimal avanceOld, String obsCtrl,
+			String typAv, String resume, Mission mission, Missionnaire missionnaire,
+			Collection<AvoirFrais> avoirFraisCollection) {
+		super();
+		this.code = code;
+		this.cin = cin;
+		this.numord = numord;
+		this.numMission = numMission;
+		this.datdepP = datdepP;
+		this.datarrP = datarrP;
+		this.datdepR = datdepR;
+		this.datarrR = datarrR;
+		this.timbr = timbr;
+		this.avance = avance;
+		this.etat = etat;
+		this.numPb = numPb;
+		this.datePay = datePay;
+		this.avanceAcc = avanceAcc;
+		this.datRap = datRap;
+		this.numOp = numOp;
+		this.tauxSpec = tauxSpec;
+		this.avanceOld = avanceOld;
+		this.obsCtrl = obsCtrl;
+		this.typAv = typAv;
+		this.resume = resume;
+		this.mission = mission;
+		this.missionnaire = missionnaire;
 		this.avoirFraisCollection = avoirFraisCollection;
 	}
     
