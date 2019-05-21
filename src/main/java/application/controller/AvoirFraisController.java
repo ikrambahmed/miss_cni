@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import application.model.AvoirFrais;
 import application.model.Mission;
 import application.model.Missionnaire;
+import application.model.Projet;
+import application.repository.AvoirFraisRepository;
 import application.service.AvoirFraisDao;
 
 @RestController
@@ -27,6 +29,9 @@ public class AvoirFraisController {
 
 	@Autowired
 	private AvoirFraisDao avoirFrais ; 
+	
+	@Autowired
+	private AvoirFraisRepository avoirrep ; 
 		
 	@GetMapping("/listeFrais")
 	public List<AvoirFrais> getFrais() {
@@ -63,5 +68,30 @@ public class AvoirFraisController {
 	    {
 		  return avoirFrais.getFraisMission(codeDept,numMission,cin,numOrd) ; 
 	   }
+    @RequestMapping(value = "/getFrais", method = RequestMethod.POST)
+	  public List<AvoirFrais> findMission(@RequestBody AvoirFrais a)
+	    {
+		  return avoirFrais.getFraisMission(a.getCode(),a.getNumMission(),a.getCin(),a.getNumord()) ;
+	   }
     
+    @RequestMapping(value = "/getSommeFrais", method = RequestMethod.POST)
+	  public Integer  getSommeFrais(@RequestBody AvoirFrais a)
+	    {
+		  return avoirFrais.getSommeValue(a.getCode(),a.getNumMission(),a.getCin(),a.getNumord(),a.getTypFrais()) ;
+	    }
+  
+    @RequestMapping(value = "/deleteFrais", method = RequestMethod.POST)
+ 	public Boolean delete(@RequestBody AvoirFrais a) {
+ 	
+    if( avoirrep.deletefrais(a.getNumord(), a.getNumMission(), a.getCode(), a.getCin())==1) {
+    	
+ 		
+ 		 return true ; }
+    
+    else 
+    	
+    	return false ; 
+    }
 }
+    
+

@@ -15,7 +15,7 @@ import application.model.AvoirBudgetProjetPK;
 @Repository
 public interface  AvoirBudgetProjetRepository extends JpaRepository<AvoirBudgetProjet, Class<AvoirBudgetProjetPK>>
 {
-	@Query("select a from AvoirBudgetProjet a , DeptGen d where d.code=:codeDept and a.code= d.code ")
+	@Query("select a from AvoirBudgetProjet a , DeptGen d where d.code=:codeDept and a.code= d.code order by a.dateBproj desc ")
 	List<AvoirBudgetProjet> findBugetPByDept(@Param("codeDept") String codeDept);	
 	
 }

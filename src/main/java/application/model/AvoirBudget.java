@@ -39,7 +39,6 @@ public class AvoirBudget implements Serializable  {
 	
 	@JoinColumn(name = "CODE", referencedColumnName = "CODE", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-	@JsonIgnore
     private DeptGen depart;
 	
 	public Date getDate_budg() {

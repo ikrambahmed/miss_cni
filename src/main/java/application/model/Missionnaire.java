@@ -71,6 +71,9 @@ public class Missionnaire implements Serializable {
 	private String niveau;
 	@Column(name = "ministr")
 	private String ministr;
+	
+	private String codGrd ; 
+	
     
     @JoinColumn(name = "COD_CAT", referencedColumnName = "COD_CAT")
     @ManyToOne
@@ -148,6 +151,16 @@ public class Missionnaire implements Serializable {
 
 	public void setCodCat(Categorie codCat) {
 		this.codCat = codCat;
+	}
+	
+	
+
+	public String getCodGrd() {
+		return codGrd;
+	}
+
+	public void setCodGrd(String codGrd) {
+		this.codGrd = codGrd;
 	}
 
 	public Classe getClassgrd() {

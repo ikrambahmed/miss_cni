@@ -16,7 +16,7 @@ import application.model.ProjetPK;
 public interface ProjetRepository extends JpaRepository<Projet, Class<ProjetPK>>{
 
 	
-	@Query("select o from Projet o ,DeptGen p where p.code =:codeDept and o.code= p.code")
+	@Query("select o from Projet o ,DeptGen p where p.code =:codeDept and o.code= p.code ORDER BY o.codPrj desc")
 	public List<Projet> findProjetByDept(@Param("codeDept")String codeDept);
    
 	@Transactional

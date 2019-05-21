@@ -61,6 +61,10 @@ public class OrdMis implements Serializable{
     @Column(name = "TIMBR")
     private BigDecimal timbr;
     
+    @Column(name = "DUREE")
+    private String duree;
+    
+    
     @Column(name = "AVANCE")
     private BigDecimal avance;
     
@@ -124,6 +128,47 @@ public class OrdMis implements Serializable{
 		this.mission = mission;
 	}
 
+
+	public OrdMis(String code, String cin, short numord, String numMission, Date datdepP, Date datarrP, Date datdepR,
+			Date datarrR, BigDecimal timbr, String duree, BigDecimal avance, String etat, String numPb, Date datePay,
+			BigDecimal avanceAcc, Date datRap, String numOp, BigDecimal tauxSpec, BigDecimal avanceOld, String obsCtrl,
+			String typAv, String resume, Mission mission, Missionnaire missionnaire,
+			Collection<AvoirFrais> avoirFraisCollection) {
+		super();
+		this.code = code;
+		this.cin = cin;
+		this.numord = numord;
+		this.numMission = numMission;
+		this.datdepP = datdepP;
+		this.datarrP = datarrP;
+		this.datdepR = datdepR;
+		this.datarrR = datarrR;
+		this.timbr = timbr;
+		this.duree = duree;
+		this.avance = avance;
+		this.etat = etat;
+		this.numPb = numPb;
+		this.datePay = datePay;
+		this.avanceAcc = avanceAcc;
+		this.datRap = datRap;
+		this.numOp = numOp;
+		this.tauxSpec = tauxSpec;
+		this.avanceOld = avanceOld;
+		this.obsCtrl = obsCtrl;
+		this.typAv = typAv;
+		this.resume = resume;
+		this.mission = mission;
+		this.missionnaire = missionnaire;
+		this.avoirFraisCollection = avoirFraisCollection;
+	}
+
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
 
 	public Missionnaire getMissionnaire() {
 		return missionnaire;

@@ -28,8 +28,8 @@ public class UserService implements ICrudService<Utilisateur, String>{
 	}
 
 	@Override
-	public void update(Utilisateur user) {
-		userRepository.save(user);
+	public Utilisateur update(Utilisateur user) {
+		return userRepository.save(user);
 	}
 
 	@Override
@@ -57,6 +57,13 @@ public class UserService implements ICrudService<Utilisateur, String>{
 		// TODO Auto-generated method stub
 		return userRepository.getNomPrenom(cin);
 	}
+
+	
+	public Utilisateur getUserUpdate(String username, String password) {
+		// TODO Auto-generated method stub
+		return userRepository.findUser(username, password);
+	}
+
 
 	
 }

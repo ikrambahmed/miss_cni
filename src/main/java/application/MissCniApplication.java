@@ -41,11 +41,11 @@ public class MissCniApplication {
      	JasperExportManager.exportReportToPdfFile(jasperPrint,"C:\\Users\\ikram ben ahmed\\Documents\\workspace-spring-tool-suite-4-4.1.1.RELEASE\\miss_cni\\src\\Blank_A4.pdf") ; 
      	
      	
-     	
-     	
-     	
      	*/
-        Role roleOrd = new Role(RoleEnum.ROLE_ORD)  ; 
+     	
+     	
+     
+       Role roleOrd = new Role(RoleEnum.ROLE_ORD)  ; 
 		Role roleUser = new Role(RoleEnum.ROLE_USER);
 		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
 		Role roleControl = new Role(RoleEnum.ROLE_CONTROL);
@@ -66,7 +66,7 @@ public class MissCniApplication {
 		user.setRoles(Arrays.asList(roleUser));
 		userRepository.save(user);
 
-		Utilisateur use = new Utilisateur("98765432","Kerro","Dorra","pass3", true);
+		Utilisateur use = new Utilisateur("98765432","الورغمي","نجاة","pass3", true);
 		use.setRoles(Arrays.asList(roleUser, roleControl));
 		userRepository.save(use);
 
@@ -75,9 +75,13 @@ public class MissCniApplication {
 		admin.setRoles(Arrays.asList(roleUser));
 		userRepository.save(admin);
 
-		Utilisateur user1 = new Utilisateur("11406260","Ben ahmed","Ikram","ikram", true);
+		Utilisateur user1 = new Utilisateur("11406260","الرياحي","الهام","ikram", true);
 		user1.setRoles(Arrays.asList(roleOrd,roleUser));
 		userRepository.save(user1);
+
+		Utilisateur user11 = new Utilisateur("07481756","سبوعي","سهى","souha", true);
+		user11.setRoles(Arrays.asList(roleOrd,roleUser));
+		userRepository.save(user11);
 		
 
 	}

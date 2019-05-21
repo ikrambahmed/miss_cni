@@ -83,15 +83,18 @@ public class AvoirFraisPK implements Serializable {
 	}
 
 
-	public AvoirFraisPK(String code, String numMission, short numord, String typFrais, String codPays) {
+	public AvoirFraisPK(String code, String numMission, short numord, String typFrais, String codPays, String cin) {
 		super();
 		this.code = code;
 		this.numMission = numMission;
 		this.numord = numord;
 		this.typFrais = typFrais;
 		this.codPays = codPays;
+		this.cin = cin;
 	}
 
+
+	
 
 
 

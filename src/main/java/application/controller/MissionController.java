@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,9 +86,13 @@ public class MissionController {
 
 	
 	@GetMapping("/latestCode")
-	public String findCode(@RequestParam(name="codeDept" , defaultValue="") String codeDept) {
+	public String findCode(@RequestParam(name="codeDept",defaultValue="")String codeDept) {
 		return missiondao.findCode(codeDept);
 	}
 	
+    @RequestMapping(value="/CountMission", method = RequestMethod.GET)
+	public Integer getCountMission(@RequestParam(name="annee",defaultValue="")String annee) {
+		return missiondao.getCountMission(annee) ; 
+	}
 	
 }

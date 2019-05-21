@@ -13,7 +13,7 @@ public interface IAvoirFrais {
 	
 	void updateFrais(AvoirFrais frais) ; 
 	
-	void deleteFrais(AvoirFrais frais) ; 
+	//void deleteFrais(AvoirFrais frais) ; 
 	
 	public List<AvoirFrais> AvoirFraisByMission(String numMission) ;
 

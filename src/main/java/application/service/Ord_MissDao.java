@@ -47,4 +47,24 @@ import application.repository.Ord_MissRepository;
 			// TODO Auto-generated method stub
 			return ordmissRepository.getOrdres(codeDept);
 		}
-}
+
+
+		public List<OrdMis> searchOrdMiss(String cin, String code) {
+			// TODO Auto-generated method stub
+			return ordmissRepository.searchOrdMiss(cin , code);
+		}
+
+
+		public List<OrdMis> getAllOdre(String numMission, String code) {
+			// TODO Auto-generated method stub
+			return ordmissRepository.getAllOrdre(numMission , code) ; 
+		}
+
+		
+/*
+
+		public int deleteOrdre(String numMission, short numord, String code) {
+			return ordmissRepository.delete(numord , numMission , code) ; 
+			
+		}*/
+	}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,6 +35,10 @@ public class UserController {
 	public List<Utilisateur> getAll() {
 		return userService.getAll() ; 
 	}
+	@PutMapping("/updatePassword")
+	public Utilisateur update(@RequestBody Utilisateur u) {
+		return userService.update(u);
+	}
 	
 	@PostMapping("/addUser")
 	public Utilisateur addUser(@RequestBody Utilisateur user)
@@ -59,4 +64,9 @@ public class UserController {
 	}
 	
 
+    @RequestMapping(value="/verifierUser", method = RequestMethod.POST)
+    public Utilisateur verifierUser(@RequestBody Utilisateur u)
+	{
+		return userService.getUserUpdate(u.getUsername(),u.getPassword()); 
+	}
 }

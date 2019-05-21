@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.DeptGen;
 import application.model.Missionnaire;
+import application.model.Projet;
+import application.repository.MissionnaireRepository;
 import application.service.MissionnaireService;
 
 
@@ -31,6 +34,9 @@ public class MissionnaireController {
 	
 	@Autowired
 	private MissionnaireService missionaireService ; 
+	
+	@Autowired
+	private MissionnaireRepository missionnairerep;
 	
 	@GetMapping(value="/getOneMiss")
 	  public Optional<Missionnaire> getMiss(@RequestParam(name="cin",defaultValue="")String cin)
@@ -76,6 +82,19 @@ public class MissionnaireController {
 	return missionaireService.findOneMissionnaireDept(deptgen.getCode()) ; 
 	}
 	
+	
+	  @RequestMapping(value = "/deleteMissionnaire", method = RequestMethod.POST)
+		public Boolean deleteMissionnaire(@RequestBody Missionnaire m) {
+		
+				if (missionnairerep.delete(m.getCin())==1) {
+					return true;
+					
+				}
+			
+			 
+				else
+			
+			return false;}
 	
 	
 }

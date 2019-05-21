@@ -32,5 +32,17 @@ public interface Ord_MissRepository extends JpaRepository<OrdMis, Class<OrdMisPK
 
     @Query("select o from OrdMis o where o.code=:codeDept")
 	List<OrdMis> getOrdres(@Param("codeDept")String codeDept);
+
+    @Query("select o from OrdMis o, Missionnaire m, Mission mi, DeptGen d  where m.code.code=:code and m.cin=:cin and o.missionnaire.cin= m.cin and m.code.code=o.code")
+    List<OrdMis> searchOrdMiss(@Param("cin")String cin, @Param("code")String code);
+
+    @Query("select o from OrdMis o  where o.code=:code and o.numMission=:numMission ")
+	List<OrdMis> getAllOrdre(@Param("numMission")String numMission, @Param("code")String code);
+    @Transactional
+    @Modifying
+    @Query("delete from OrdMis o where o.numord=:numord and o.numMission=:numMission and o.code=:code")
+	int deleteord(@Param("numord")short numord, @Param("numMission")String numMission,@Param("code") String code);
+    
+    
     
 }

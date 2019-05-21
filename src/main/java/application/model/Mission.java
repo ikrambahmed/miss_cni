@@ -47,8 +47,9 @@ public class Mission implements Serializable{
 	    private Date datarrP;
 
 	   
+	    @Column(name="DUREE")
+        private String duree ; 
 	    
-
 	    @JoinColumn(name = "CODE", insertable=false , updatable=false )
 	    @ManyToOne
 	    private DeptGen deptGen;
@@ -62,9 +63,18 @@ public class Mission implements Serializable{
 	    @JsonIgnore
 	    private Collection<OrdMis> ordMisCollection;
 	   
-	    
+	  private String annee ; 
+
+		public String getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(String annee) {
+		this.annee = annee;
+	}
+
 		public Mission(String numMission, String code, String objeta, String objetl, Date datdepP, Date datarrP,
-				DeptGen deptGen, application.model.Motcle motcle, Collection<OrdMis> ordMisCollection) {
+				String duree, DeptGen deptGen, application.model.Motcle motcle, Collection<OrdMis> ordMisCollection) {
 			super();
 			this.numMission = numMission;
 			this.code = code;
@@ -72,9 +82,18 @@ public class Mission implements Serializable{
 			this.objetl = objetl;
 			this.datdepP = datdepP;
 			this.datarrP = datarrP;
+			this.duree = duree;
 			this.deptGen = deptGen;
 			Motcle = motcle;
 			this.ordMisCollection = ordMisCollection;
+		}
+
+		public String getDuree() {
+			return duree;
+		}
+
+		public void setDuree(String duree) {
+			this.duree = duree;
 		}
 
 		public Mission() {
@@ -186,7 +205,7 @@ public class Mission implements Serializable{
 			this.ordMisCollection = ordMisCollection;
 		}
        
-	   
+	  
     
 
 }

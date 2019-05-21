@@ -30,9 +30,7 @@ public class TypFrais implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
   
-    @Size(min = 1, max = 2)
     @Column(name = "TYP_FRAIS")
     private String typFrais;
    
@@ -54,7 +52,16 @@ public class TypFrais implements Serializable {
         this.typFrais = typFrais;
     }
 
-    public TypFrais(String typFrais, String libFrais) {
+    public TypFrais(String typFrais, @Size(min = 1, max = 30) String libFrais, @Size(max = 30) String libFraisl,
+			Collection<AvoirFrais> avoirFraisCollection) {
+		super();
+		this.typFrais = typFrais;
+		this.libFrais = libFrais;
+		this.libFraisl = libFraisl;
+		this.avoirFraisCollection = avoirFraisCollection;
+	}
+
+	public TypFrais(String typFrais, String libFrais) {
         this.typFrais = typFrais;
         this.libFrais = libFrais;
     }

@@ -1,5 +1,6 @@
 package application.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,5 +86,10 @@ public class Missiondao implements IMission {
 		public Mission getMissionValidation(String codeDept, String numMission) {
 			// TODO Auto-generated method stub
 			return missionRepository.getMissValidation(codeDept,numMission);
+		}
+		public Integer getCountMission(String annee)
+		{
+			return missionRepository.getCountMissions(annee) ; 
+			
 		}
 	}

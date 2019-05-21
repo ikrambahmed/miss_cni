@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import application.model.Mission;
 import application.model.Projet;
 import application.repository.ProjetRepository;
 import application.service.ProjetDao;
@@ -36,6 +39,14 @@ public class ProjetController {
 	public Projet addProjet(@RequestBody Projet p)
 	{
 		 return projetdao.addProjet(p);
+	}
+    
+	
+	@PutMapping("/updateProjet")
+	public Projet updateMission(@RequestBody Projet projet)
+	{
+		 return projetdao.updateProjet(projet);
+		
 	}
 
     @GetMapping(value="/listeProjetByDept")

@@ -32,11 +32,11 @@ public class AvoirFraisDao implements IAvoirFrais {
 		avoirFraisRespository.save(frais) ; 		
 	}
 
-	@Override
+/*	@Override
 	public void deleteFrais(AvoirFrais frais) {
 	
 		
-	}
+	}*/
 
 	@Override
 	public List<AvoirFrais> AvoirFraisByMission(String num) {
@@ -47,6 +47,18 @@ public class AvoirFraisDao implements IAvoirFrais {
 		// TODO Auto-generated method stub
 		return avoirFraisRespository.getFraisMission(codeDept,numMission,cin,numOrd);
 	}
+
+	public Integer getSommeValue(String codeDept, String numMission, String cin, Short numOrd, String typeFrais) {
+		// TODO Auto-generated method stub
+		return avoirFraisRespository.getSommeValue(codeDept,numMission,cin,numOrd,typeFrais);
+	}
+
+	
+	
+	/*public List<AvoirFrais> getFrais(String code, String numMission, String cin, short numord) {
+		// TODO Auto-generated method stub
+		return avoirFraisRespository.getFrais(code , numMission , cin , numord);
+	}*/
 	
 	
 	

@@ -83,6 +83,34 @@ public class Ord_MissController  {
 		  return ordMissDao.getOrdre(codeDept); 
 	   }
 	 
+	 @RequestMapping(value="/searchMissionnaire",method=RequestMethod.POST)
+	 public List<OrdMis> SearchMissionnaire(@RequestBody Missionnaire o )
+	 {
+		 return ordMissDao.searchOrdMiss(o.getCin(),o.getCode().getCode()); 
+	 }
+	 
+	 @RequestMapping(value="/getAllOrdre",method=RequestMethod.POST)
+	 public List<OrdMis> getOdreMisss(@RequestBody OrdMis o )
+	 {
+		 return ordMissDao.getAllOdre(o.getNumMission(), o.getCode()); 
+	 }
+	 
+	 
+	 @RequestMapping(value="/deleteOrdre",method=RequestMethod.POST)
+	 public Boolean deleteOrdre(@RequestBody OrdMis o )
+	 {
+		
+		 if (repository.deleteord(o.getNumord(), o.getNumMission(), o.getCode())==1) {
+				return true;
+				
+			}
+		
+		
+			else
+		
+		return false;
+	 }
+
 	 
 }
 	

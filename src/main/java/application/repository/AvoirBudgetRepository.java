@@ -16,7 +16,7 @@ import application.model.Mission;
 public interface  AvoirBudgetRepository extends JpaRepository<AvoirBudget, Class<AvoirBudgetPK>>
 {
 	//where a.date_budg =(select MAX(a.date_budg) from AvoirBudget a ,DeptGen d  where a.depart.code=d.code ) and 
-	@Query("select a from AvoirBudget a,DeptGen d where a.depart.code=:codeDept and a.depart.code=d.code and a.date_budg =(select MAX(a.date_budg) from AvoirBudget a   where a.depart.code=d.code ) ")
+	@Query("select a from AvoirBudget a,DeptGen d where a.depart.code=:codeDept and a.depart.code=d.code order by a.date_budg desc")
 	List<AvoirBudget> findBugetByDeptByYears(@Param("codeDept") String codeDept);
 	
 	@Query("select o from AvoirBudget o where o.type_budget=:x")

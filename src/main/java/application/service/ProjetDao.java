@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import application.model.Mission;
 import application.model.Missionnaire;
 import application.model.Projet;
 import application.repository.ProjetRepository;
@@ -35,6 +36,12 @@ public class ProjetDao {
 	public String getLatestProjetCode(String codeDept) {
 		// TODO Auto-generated method stub
 		return projetrepository.LatestProjetCode(codeDept) ;
+	}
+
+
+	public Projet updateProjet(Projet projet) {
+		// TODO Auto-generated method stub
+		return projetrepository.save(projet);
 	}
 
     

@@ -31,9 +31,7 @@ public class AvoirFrais implements Serializable {
 	
    // @EmbeddedId
    // protected AvoirFraisPK avoirFraisPK;
-	
-	
-
+     	
 	@Id
 	@Column(name="code")
 	private String code ; 
@@ -59,11 +57,11 @@ public class AvoirFrais implements Serializable {
 
 
     @Column(name = "VALEUR_P")
-    private BigDecimal valeurP;
+    private Double valeurP;
     
     @Column(name = "VALEUR_R")
     
-    private BigDecimal valeurR;
+    private Integer valeurR;
    
     @Column(name = "SUPPORTE")
     
@@ -86,10 +84,8 @@ public class AvoirFrais implements Serializable {
     
     private String typetransport;
     
-    
-    
-    
- 
+    private String duree; 
+
     
     @JoinColumns({
         @JoinColumn(name = "CODE", referencedColumnName = "CODE", insertable = false, updatable = false)
@@ -135,21 +131,8 @@ public class AvoirFrais implements Serializable {
 		this.typetransport = typetransport;
 	}
 
-	public BigDecimal getValeurP() {
-		return valeurP;
-	}
-
-	public void setValeurP(BigDecimal valeurP) {
-		this.valeurP = valeurP;
-	}
-
-	public BigDecimal getValeurR() {
-		return valeurR;
-	}
-
-	public void setValeurR(BigDecimal valeurR) {
-		this.valeurR = valeurR;
-	}
+	
+	
 
 	public String getSupporte() {
 		return supporte;
@@ -257,10 +240,43 @@ public class AvoirFrais implements Serializable {
 	}
 
 	
+	
+
+
+
+	public AvoirFrais() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
+
+	public Double getValeurP() {
+		return valeurP;
+	}
+
+	public void setValeurP(Double valeurP) {
+		this.valeurP = valeurP;
+	}
+
+	public Integer getValeurR() {
+		return valeurR;
+	}
+
+	public void setValeurR(Integer valeurR) {
+		this.valeurR = valeurR;
+	}
+
 	public AvoirFrais(String code, String numMission, short numord, String typFrais, String codPays, String cin,
-			BigDecimal valeurP, BigDecimal valeurR, String supporte, String supCode, String codPrj,
-			@Size(max = 120) String observ, @Size(max = 120) String aobserv, String nVille, String typetransport,
-			OrdMis ordMis, Pays pays, TypFrais typFrais1) {
+			Double valeurP, Integer valeurR, String supporte, String supCode, String codPrj, String observ,
+			String aobserv, String nVille, String typetransport, String duree, OrdMis ordMis, Pays pays,
+			TypFrais typFrais1) {
 		super();
 		this.code = code;
 		this.numMission = numMission;
@@ -277,17 +293,12 @@ public class AvoirFrais implements Serializable {
 		this.aobserv = aobserv;
 		NVille = nVille;
 		this.typetransport = typetransport;
+		this.duree = duree;
 		this.ordMis = ordMis;
 		this.pays = pays;
 		this.typFrais1 = typFrais1;
 	}
 
-	public AvoirFrais() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
 
-	
 	
 }
